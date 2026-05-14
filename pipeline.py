@@ -171,15 +171,20 @@ class VoiceRAGPipeline:
 
     def __init__(
         self,
-        stt_model_path: str,
+        stt_model_path: Optional[str] = None,
         faiss_index_path: str = "faiss_index",
         llm_model: str = "gpt-4o",
         top_k: int = 4,
     ):
         print("🔧 Initialising Voice RAG Pipeline …")
 
-        # STT
-        self.stt = VoiceToTextModel(stt_model_path)
+        # STT (optional — omit path to use query_text() only until STT is wired)
+        self.stt: Optional[VoiceToTextModel]
+        if stt_model_path:
+            self.stt = VoiceToTextModel(stt_model_path)
+        else:
+            self.stt = None
+            print("   (STT disabled — use query_text() or pass stt_model_path for audio.run())")
 
         # FAISS
         self.faiss_mgr = FAISSManager(index_path=faiss_index_path)
@@ -203,6 +208,11 @@ class VoiceRAGPipeline:
               "sources":    list[Document],
             }
         """
+        if not self.stt:
+            raise RuntimeError(
+                "Audio run requires STT. Pass stt_model_path to VoiceRAGPipeline, "
+                "or use query_text() for text-only queries."
+            )
         print(f"🎙️  Transcribing: {audio_path}")
         transcript = self.stt.transcribe(audio_path)
         print(f"📝  Transcript  : {transcript}\n")
