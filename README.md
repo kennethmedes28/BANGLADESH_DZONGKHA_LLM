@@ -86,3 +86,12 @@ Change `llm_model` in `VoiceRAGPipeline` to any OpenAI model:
 - `gpt-4o` (default — best quality)
 - `gpt-4o-mini` (faster, cheaper)
 - `gpt-3.5-turbo` (budget option)
+
+## Notes
+This project is a template for building a voice-based RAG system. This is the recipe for the pipeline architecture. Once the model has been trained, you can now setup the trained model in the `VoiceToTextModel` class and run the pipeline to get answers from your audio queries.
+
+The API pipeline is streamlit-based, so you can easily deploy it as a web app. Just run:
+```bash
+streamlit run pipeline.py
+```
+This will launch a local web interface where you can upload audio files and see the generated answers along with the retrieved sources.

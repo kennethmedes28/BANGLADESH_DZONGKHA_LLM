@@ -24,3 +24,6 @@ openai>=1.30.0
 
 # Utilities
 python-dotenv>=1.0.0
+
+# Interactive API
+streamlit
