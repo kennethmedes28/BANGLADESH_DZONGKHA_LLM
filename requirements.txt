@@ -1,0 +1,26 @@
+# Voice RAG Pipeline — Python dependencies
+# Install with: pip install -r requirements.txt
+
+# LangChain
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-openai>=0.1.0
+
+# Vector store
+faiss-cpu>=1.8.0          # swap to faiss-gpu if you have CUDA
+
+# OpenAI
+openai>=1.30.0
+
+# Document loaders (optional — uncomment as needed)
+# pypdf>=4.0.0            # PDF loading
+# unstructured>=0.14.0    # General file loading
+
+# Audio / STT helpers (uncomment to match your model)
+# openai-whisper>=20231117
+# transformers>=4.40.0
+# torch>=2.2.0
+# torchaudio>=2.2.0
+
+# Utilities
+python-dotenv>=1.0.0
