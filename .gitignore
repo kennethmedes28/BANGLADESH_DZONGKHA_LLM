@@ -1,2 +1,3 @@
 instructions.txt
 *.env
+__pycache__
