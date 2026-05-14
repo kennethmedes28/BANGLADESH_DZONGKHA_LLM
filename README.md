@@ -95,3 +95,6 @@ The API pipeline is streamlit-based, so you can easily deploy it as a web app. J
 streamlit run pipeline.py
 ```
 This will launch a local web interface where you can upload audio files and see the generated answers along with the retrieved sources.
+
+## Important Note
+Take note of the context on how you will use the pipeline. All the necessary data needed for training is available in the `data/` directory. The complete pipline is subject to change depending on the context of this study. Final pipeline for deployment will be based on the best performing model and the best performing pipeline architecture.
